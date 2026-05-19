@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  簡化版 Fortify FPR 樣本（教學用）
+  真實 FPR 為壓縮檔，此為解壓後 audit.fvdl 的最小範例片段。
+-->
+<FVDL xmlns="xmlns://www.fortifysoftware.com/schema/fvdl"
+      version="1.30"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CreatedTS date="2026-05-10" time="02:30:15"/>
+  <UUID>a1b2c3d4-1234-5678-9abc-def012345678</UUID>
+  <Build>
+    <BuildID>TCB-NetBanking-Backend</BuildID>
+    <NumberFiles>1</NumberFiles>
+    <SourceBasePath>/src/main/java</SourceBasePath>
+    <SourceFiles>
+      <File size="2350" timestamp="1715300000000" loc="95" type="java" encoding="UTF-8">
+        <Name>com/tcb/workshop/module2/AccountQueryService.java</Name>
+      </File>
+    </SourceFiles>
+  </Build>
+
+  <Vulnerabilities>
+    <Vulnerability>
+      <ClassInfo>
+        <ClassID>SQLI-001</ClassID>
+        <Kingdom>Input Validation and Representation</Kingdom>
+        <Type>SQL Injection</Type>
+        <AnalyzerName>dataflow</AnalyzerName>
+        <DefaultSeverity>4.0</DefaultSeverity>
+      </ClassInfo>
+      <InstanceInfo>
+        <InstanceID>sqli001</InstanceID>
+        <InstanceSeverity>4.0</InstanceSeverity>
+        <Confidence>5.0</Confidence>
+      </InstanceInfo>
+      <AnalysisInfo>
+        <Unified>
+          <Trace>
+            <Primary>
+              <Entry>
+                <Node isDefault="true">
+                  <SourceLocation path="com/tcb/workshop/module2/AccountQueryService.java"
+                                  line="24" lineEnd="24" colStart="38" colEnd="48"
+                                  snippet="public Map&lt;String, Object&gt; queryAccount(String accountId)"/>
+                  <Action type="Read">accountId</Action>
+                </Node>
+              </Entry>
+              <Entry>
+                <Node>
+                  <SourceLocation path="com/tcb/workshop/module2/AccountQueryService.java"
+                                  line="31" lineEnd="31" colStart="29" colEnd="55"
+                                  snippet="ResultSet rs = stmt.executeQuery(sql);"/>
+                  <Action type="DataflowSink">executeQuery</Action>
+                </Node>
+              </Entry>
+            </Primary>
+          </Trace>
+        </Unified>
+      </AnalysisInfo>
+    </Vulnerability>
+
+    <Vulnerability>
+      <ClassInfo>
+        <ClassID>HP-001</ClassID>
+        <Kingdom>Security Features</Kingdom>
+        <Type>Password Management</Type>
+        <Subtype>Hardcoded Password</Subtype>
+        <AnalyzerName>structural</AnalyzerName>
+        <DefaultSeverity>4.0</DefaultSeverity>
+      </ClassInfo>
+      <InstanceInfo>
+        <InstanceID>hp001</InstanceID>
+        <InstanceSeverity>4.0</InstanceSeverity>
+        <Confidence>5.0</Confidence>
+      </InstanceInfo>
+      <AnalysisInfo>
+        <Unified>
+          <Trace>
+            <Primary>
+              <Entry>
+                <Node isDefault="true">
+                  <SourceLocation path="com/tcb/workshop/module2/AccountQueryService.java"
+                                  line="16" lineEnd="16" colStart="42" colEnd="58"
+                                  snippet="private static final String DB_PASSWORD = &quot;P@ssw0rd123!&quot;;"/>
+                </Node>
+              </Entry>
+            </Primary>
+          </Trace>
+        </Unified>
+      </AnalysisInfo>
+    </Vulnerability>
+
+    <Vulnerability>
+      <ClassInfo>
+        <ClassID>XSS-001</ClassID>
+        <Kingdom>Input Validation and Representation</Kingdom>
+        <Type>Cross-Site Scripting</Type>
+        <Subtype>Reflected</Subtype>
+        <AnalyzerName>dataflow</AnalyzerName>
+        <DefaultSeverity>3.0</DefaultSeverity>
+      </ClassInfo>
+      <InstanceInfo>
+        <InstanceID>xss001</InstanceID>
+        <InstanceSeverity>3.0</InstanceSeverity>
+        <Confidence>4.5</Confidence>
+      </InstanceInfo>
+    </Vulnerability>
+
+    <Vulnerability>
+      <ClassInfo>
+        <ClassID>PATH-001</ClassID>
+        <Kingdom>Input Validation and Representation</Kingdom>
+        <Type>Path Manipulation</Type>
+        <AnalyzerName>dataflow</AnalyzerName>
+        <DefaultSeverity>3.0</DefaultSeverity>
+      </ClassInfo>
+      <InstanceInfo>
+        <InstanceID>path001</InstanceID>
+        <InstanceSeverity>3.0</InstanceSeverity>
+        <Confidence>4.5</Confidence>
+      </InstanceInfo>
+    </Vulnerability>
+
+    <Vulnerability>
+      <ClassInfo>
+        <ClassID>CRYPTO-001</ClassID>
+        <Kingdom>Security Features</Kingdom>
+        <Type>Weak Cryptographic Hash</Type>
+        <AnalyzerName>semantic</AnalyzerName>
+        <DefaultSeverity>3.0</DefaultSeverity>
+      </ClassInfo>
+      <InstanceInfo>
+        <InstanceID>crypto001</InstanceID>
+        <InstanceSeverity>3.0</InstanceSeverity>
+        <Confidence>5.0</Confidence>
+      </InstanceInfo>
+    </Vulnerability>
+
+    <Vulnerability>
+      <ClassInfo>
+        <ClassID>LOG-001</ClassID>
+        <Kingdom>Input Validation and Representation</Kingdom>
+        <Type>Log Forging</Type>
+        <AnalyzerName>dataflow</AnalyzerName>
+        <DefaultSeverity>2.0</DefaultSeverity>
+      </ClassInfo>
+      <InstanceInfo>
+        <InstanceID>log001</InstanceID>
+        <InstanceSeverity>2.0</InstanceSeverity>
+        <Confidence>4.0</Confidence>
+      </InstanceInfo>
+    </Vulnerability>
+  </Vulnerabilities>
+</FVDL>

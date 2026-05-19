@@ -1,0 +1,15 @@
+# Instructor-only materials (do not commit)
+instructor-only/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Java build
+target/
+*.class
