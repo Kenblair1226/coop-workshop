@@ -20,7 +20,7 @@
 - Table schema 反查與資料結構說明
 - 業管需求 → 程式邏輯反向溯源
 
-📁 範例：[module1-cobol/](./module1-cobol/)（待補 COBOL 帳務範例）
+📁 範例：[module1-cobol/](./module1-cobol/)（活儲計息批次 + Java 重寫參考）
 
 ---
 

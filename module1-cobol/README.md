@@ -1,34 +1,47 @@
-# Module 1：COBOL 範例（待補）
+# Module 1：COBOL 範例 — 活儲計息批次
 
-## 待補內容
+ Module 1 demo 用的真實風格 COBOL 程式及對應 Java 重寫成果。
 
-請客戶（合庫一科）提供一段**帳務處理 COBOL** 程式，置於本目錄。
+## 檔案
 
-### 期望特性
+| 檔案 | 說明 |
+|------|------|
+| `ACCT-INT.cbl` | 活儲計息批次主程式（約 200 行，含 EXEC SQL、PERFORM 子程式、業務規則） |
+| `schema.sql` | 對應 ACCOUNT / INT_LOG 表 DDL + 範例資料 |
+| `reference-java/AccountInterestProcessor.java` | Java 17 重寫版本（給講師示範用） |
+| `reference-java/AccountInterestProcessorTest.java` | JUnit 5 測試案例，驗證 R-001~R-003 行為一致 |
 
-- 約 100–300 行
-- 包含：
-  - 主要 PROCEDURE DIVISION 與至少 2 個 PERFORM 子程式
-  - EXEC SQL 區塊（對 ACCOUNT 或類似表）
-  - 至少 1 個明顯的業務規則（如：帳戶透支、利息計算、轉帳）
-- 不含敏感資訊（客戶帳號、姓名、實際金額需脫敏）
+## 程式情境
 
-### 預期檔案結構
+pwd
 
+- **R-001 分段利率**
+  - 餘額 < 50 萬 → 0.08% 年息
+  - 50 萬 ~ 300 萬 → 0.12% 年息
+  - ≥ 300 萬 → 0.15% 年息
+- **R-002 薪轉戶**（`ACCT_TYPE = 'SA'`）加碼 0.05%
+- **R-003 透支戶**（餘額為負）扣 1% 違約金，不計息
+- **R-004** 結算結果寫入 `INT_LOG` 表供月底核對
+
+## VS Code 開啟建議
+
+#重寫成果。 
+ COBOL 語法高亮：
+- `bitlang.cobol` — COBOL Language Support
+
+```bash
+code --install-extension bitlang.cobol
 ```
-module1-cobol/
-├── README.md                # 本檔
-├── ACCOUNT-PROCESS.cbl      # 主要範例程式
-├── schema.sql               # 對應 DDL（脫敏假表）
-└── reference-java/          # 講師預跑的 Java 重寫成果（給學員觀摩）
-    └── AccountProcessor.java
-```
 
-### 講師預跑流程
+## 講師預跑流程
 
-1. 確認 COBOL 在 VS Code 可開啟（建議擴充套件：`bitlang.cobol`）
-2. 用 `/explain` 跑過一遍，記錄輸出品質
-3. 跑 COBOL → Java 轉換，將結果存入 `reference-java/` 作為參考解
-4. 確認 Java 可以 `javac` 編譯通過
+1. 用 VS Code 開啟本目錄
+2. Copilot Chat 操作：
+   - 對 `ACCT-INT.cbl` 跑 `/explain`
+   - 請 Copilot 對應到 `schema.sql` 的欄位
+   - 請 Copilot 轉為 Java（對照 `reference-java/` 看品質）
+3. 用 `reference-java/AccountInterestProcessorTest.java` 驗證重寫正確性
 
+## 注意
 
+.git .gitignore README.md agenda.md handson module1-cobol  **教學用脫敏範例**，非合庫實際程式。所有客戶 ID、帳號、金額均為虛構。instructor-only/

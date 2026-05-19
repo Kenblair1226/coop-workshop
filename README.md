@@ -28,7 +28,7 @@ coop/
 │   ├── 02-fortify/
 │   ├── 03-spec/
 │   └── 04-custom-agent/
-└── module1-cobol/             # COBOL 範例（待客戶提供帳務範例補入）
+└── module1-cobol/             # COBOL 範例（活儲計息批次）
 ```
 
 ## 環境需求（學員開課前準備）
