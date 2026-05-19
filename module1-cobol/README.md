@@ -8,7 +8,7 @@
 |------|------|
 | `ACCT-INT.cbl` | 活儲計息批次主程式（約 200 行，含 EXEC SQL、PERFORM 子程式、業務規則） |
 | `schema.sql` | 對應 ACCOUNT / INT_LOG 表 DDL + 範例資料 |
-| `reference-java/AccountInterestProcessor.java` | Java 17 重寫版本（給講師示範用） |
+| `reference-java/AccountInterestProcessor.java` | Java 17 重寫版本（示範用） |
 | `reference-java/AccountInterestProcessorTest.java` | JUnit 5 測試案例，驗證 R-001~R-003 行為一致 |
 
 ## 程式情境
@@ -33,7 +33,7 @@ pwd
 code --install-extension bitlang.cobol
 ```
 
-## 講師預跑流程
+## 預跑流程
 
 1. 用 VS Code 開啟本目錄
 2. Copilot Chat 操作：

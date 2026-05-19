@@ -21,7 +21,7 @@
 | 檔案 | 說明 |
 |------|------|
 | `sample-spec.md` | 業務需求規格書 |
-| `reference-skeleton/` | 講師預跑的參考解（卡關時可看） |
+| `reference-skeleton/` | 參考解（卡關時可看） |
 
 ---
 
