@@ -23,8 +23,10 @@
 | `.github/agents/tcb-code-reviewer.agent.md` | **TCB Code Reviewer** | 程式碼審查 |
 | `.github/agents/tcb-security-auditor.agent.md` | **TCB Security Auditor** | 資安弱點分析 |
 | `.github/agents/tcb-spec-analyst.agent.md` | **TCB Spec Analyst** | 規格書分析 |
+| `.github/agents/pdf-to-md.agent.md` | **PDF to Markdown** | 用 markitdown 轉 PDF/Office → MD，可 handoff 給 Spec Analyst |
 | `.github/prompts/analyze-fortify.prompt.md` | 一鍵指令 | 分析 Fortify 報告 |
 | `.github/prompts/spec-to-tests.prompt.md` | 一鍵指令 | 規格 → 測試案例 |
+| `.copilot/skills/markitdown/SKILL.md` | **Skill 範例** | 微軟 markitdown 包成 Copilot CLI Skill（全域可用） |
 
 ---
 
