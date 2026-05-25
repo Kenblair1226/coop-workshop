@@ -1,0 +1,22 @@
+{
+  "folders": [
+    { "name": "📚 coop (root)", "path": "." },
+    { "name": "M1 · COBOL", "path": "module1-cobol" },
+    { "name": "M2 · Fortify", "path": "handson/02-fortify" },
+    { "name": "M3 · Spec", "path": "handson/03-spec" },
+    { "name": "M4 · Custom Agent", "path": "handson/04-custom-agent" }
+  ],
+  "settings": {
+    "chat.promptFiles": true,
+    "files.exclude": {
+      "**/.DS_Store": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "GitHub.copilot",
+      "GitHub.copilot-chat",
+      "bitlang.cobol"
+    ]
+  }
+}

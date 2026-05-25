@@ -3,6 +3,13 @@
 **時長**：15 min
 **前置**：VS Code + Copilot + 完成 Module 2、3
 
+> ⚠️ **重要**：VS Code Copilot 的 Custom Agents / Prompt Files 只會掃 **workspace 根目錄** 的 `.github/agents/` 與 `.github/prompts/`。
+> 所以**不要**直接 Open Folder 整個 `coop/`，請改用：
+> - **推薦**：點兩下 repo 根的 `coop.code-workspace`（multi-root，M4 資料夾會被當成獨立 workspace folder）
+> - **或**：File → Open Folder → 選 `handson/04-custom-agent/`
+>
+> 確認方式：開 Copilot Chat → agent 下拉應看到 **TCB Code Reviewer / Security Auditor / Spec Analyst / PDF to Markdown**；輸入 `/` 應看到 `analyze-fortify` 與 `spec-to-tests`。
+
 ---
 
 ## 情境
@@ -34,7 +41,7 @@
 
 ### Step 1：感受 copilot-instructions 的差異（3 min）
 
-1. 開啟 VS Code，把整個 `handson/04-custom-agent/` 資料夾當 workspace 開
+1. 用 `coop.code-workspace` 開 VS Code（或 Open Folder → `handson/04-custom-agent/`）
 2. 開 Copilot Chat
 3. 問：
    ```

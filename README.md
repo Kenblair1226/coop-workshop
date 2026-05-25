@@ -24,12 +24,15 @@ GitHub Copilot 在金融開發 SDLC 的落地應用 — 半天工作坊教材。
 coop/
 ├── README.md                  # 本檔
 ├── agenda.md                  # 詳細議程
+├── coop.code-workspace        # ⭐ VS Code multi-root workspace（推薦用此開）
 ├── handson/                   # 學員 Hands-on 教材與範例
 │   ├── 02-fortify/
 │   ├── 03-spec/
 │   └── 04-custom-agent/
 └── module1-cobol/             # COBOL 範例（活儲計息批次）
 ```
+
+> 💡 **打開 workspace 的正確方式**：點兩下 `coop.code-workspace`（或 VS Code → File → Open Workspace from File）。這會把每個 module 註冊為獨立 workspace folder，**Module 4 的 `.github/agents/`、`.github/prompts/` 與 `.copilot/skills/` 才會被 Copilot 載入**。直接 Open Folder 整個 `coop/` 會吃不到 M4 的 agents。
 
 ## 環境需求（學員開課前準備）
 
